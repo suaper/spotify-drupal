@@ -1,0 +1,19 @@
+<div class="wrapper-all">
+	{% for data in var %}
+		<div class="list-album-item">
+			<div class="list-image">
+				<img src="{{ data.image }}">
+			</div>
+			<div class="list-name">
+				<strong>{{ data.name }}</strong>
+			</div>
+			<div class="list-artist">
+				<ul>
+					{% for artist in data.artists %}
+						<li><a href="artista/{{ artist.id }}">{{ artist.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	{% endfor %}
+</div>

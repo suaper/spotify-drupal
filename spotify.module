@@ -1,0 +1,42 @@
+<?php
+/**
+ * @File
+ * Spotify custom module for Drupal 8.
+ * @author Rakesh James
+ */
+
+/**
+ * Implementing hook_menu().
+ */
+function spotify_menu() {
+  // The paths given here need to match the ones in Spotify.routing.yml exactly.
+  $items['/lanzamientos'] = array(
+    'title' => 'Releases',
+    'description' => 'This is a Spotify page.',
+    // The name of the route from Spotify.routing.yml
+    'route' => 'spotify.releases',
+  );
+
+  $items['/artista/{artist}'] = array(
+    'title' => 'Artist',
+    'description' => 'This is a Spotify Artists page.',
+    // The name of the route from Spotify.routing.yml
+    'route' => 'spotify.artist',
+  );
+  return $items;
+}
+
+function spotify_theme($existing, $type, $theme, $path) {
+	return array(
+		'albums' => array(
+			'variables' => array('var' => NULL),
+		),
+		'artist' => array(
+			'variables' => array('var' => NULL),
+		),
+	);
+}
+
+function spotify_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'spotify/spotify';
+}

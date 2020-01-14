@@ -1,0 +1,14 @@
+spotify.releases:
+  path: '/lanzamientos'
+  defaults:
+    _controller: '\Drupal\spotify\Controller\SpotifyController::getReleases'
+    _title: 'Releases Spotify'
+  requirements: 
+    _permission: 'access content'
+spotify.artist:
+  path: '/artista/{artist}'
+  defaults:
+    _controller: '\Drupal\spotify\Controller\SpotifyController::getArtist'
+    _title: 'Artist Spotify'
+  requirements: 
+    _permission: 'access content'

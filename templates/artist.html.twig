@@ -1,0 +1,26 @@
+<div class="wrapper-all">
+	<div class="artist-info">
+		<img src="{{ var.image }}">
+		<strong>{{ var.name }}</strong>
+	</div>
+	<div class="track-info">
+		<table>
+			<thead>
+				<tr>
+					<th>Foto</th>
+					<th>Album</th>
+					<th>Canción</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for track in var.tracks %}
+					<tr>
+						<td><img src="{{ track.image }}"></td>
+						<td>{{ track.name }}</td>
+						<td>{{ track.song }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
